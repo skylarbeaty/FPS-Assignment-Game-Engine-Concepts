@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+
+
 public enum WeaponShootType
 {
     Manual,
@@ -22,6 +24,12 @@ public struct CrosshairData
 [RequireComponent(typeof(AudioSource))]
 public class WeaponController : MonoBehaviour
 {
+    //added vars, for powerup
+    [HideInInspector]
+    public static bool cooldownPowerup = false;
+    float cooldownModStart {get {return cooldownPowerup? 0.1f : 1f;}}//no wait for cooldown during powerup
+    float cooldownModSpeed {get {return cooldownPowerup? 2f : 1f;}}//increase speed of weapon reloading during powerup
+    //original script
     [Header("Information")]
     [Tooltip("The name that will be displayed in the UI for this weapon")]
     public string weaponName;
@@ -151,10 +159,10 @@ public class WeaponController : MonoBehaviour
 
     void UpdateAmmo()
     {
-        if (m_LastTimeShot + ammoReloadDelay < Time.time && m_CurrentAmmo < maxAmmo && !isCharging)
+        if (m_LastTimeShot + ammoReloadDelay * cooldownModStart < Time.time && m_CurrentAmmo < maxAmmo && !isCharging)//added mod for cooldown powerup
         {
             // reloads weapon over time
-            m_CurrentAmmo += ammoReloadRate * Time.deltaTime;
+            m_CurrentAmmo += ammoReloadRate * cooldownModSpeed * Time.deltaTime;
 
             // limits ammo to max value
             m_CurrentAmmo = Mathf.Clamp(m_CurrentAmmo, 0, maxAmmo);
