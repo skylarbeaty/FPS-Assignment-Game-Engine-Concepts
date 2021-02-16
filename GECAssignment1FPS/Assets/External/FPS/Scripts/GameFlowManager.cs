@@ -33,6 +33,7 @@ public class GameFlowManager : MonoBehaviour
     ObjectiveManager m_ObjectiveManager;
     float m_TimeLoadEndGameScene;
     string m_SceneToLoad;
+    public static bool hardMode = false;
 
     void Start()
     {
