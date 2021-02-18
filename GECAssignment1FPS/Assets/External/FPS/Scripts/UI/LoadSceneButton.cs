@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LoadSceneButton : MonoBehaviour
 {
     public string sceneName = "";
+    public bool setNormal = false, setHard = false;//use serparate bools because some instance wont do either (and faster than making an enum)
 
     private void Update()
     {
@@ -17,6 +18,10 @@ public class LoadSceneButton : MonoBehaviour
 
     public void LoadTargetScene()
     {
+        if (setHard)
+            GameFlowManager.hardMode = true;
+        if (setNormal)
+            GameFlowManager.hardMode = false;
         SceneManager.LoadScene(sceneName);
     }
 }

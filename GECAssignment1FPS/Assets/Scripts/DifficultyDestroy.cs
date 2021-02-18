@@ -6,7 +6,9 @@ public class DifficultyDestroy : MonoBehaviour
 {
     void Start()
     {
-        if (!GameFlowManager.hardMode)
+        if (!GameFlowManager.hardMode){
+            FindObjectOfType<EnemyManager>().UnregisterEnemy(GetComponent<EnemyController>());//remove from list to kill for level
             Destroy(gameObject);
+        }
     }
 }
