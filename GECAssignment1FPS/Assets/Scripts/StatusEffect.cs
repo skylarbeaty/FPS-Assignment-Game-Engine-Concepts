@@ -11,20 +11,17 @@ public class StatusEffect : MonoBehaviour
     public bool canInstantCooldown{get{return !instantCooldown;}}
     void Update()
     {
-        if (instantCooldown && Time.time > instantCooldownEnd)
+        if (instantCooldown && Time.time > instantCooldownEnd)//instant cooldown timer
             EndInstantCooldown();
-        //update cooldown UI
     }
 
     public void StartInstantCooldown(float timing){
         instantCooldown = true;
         instantCooldownEnd = Time.time + timing;
-        WeaponController.cooldownPowerup = true;
-        //enable cooldown ui
+        WeaponController.cooldownPowerup = true;//activate on modified microgame file
     }
     void EndInstantCooldown(){
         instantCooldown = false;
         WeaponController.cooldownPowerup = false;
-        //disable cooldown UI
     }
 }

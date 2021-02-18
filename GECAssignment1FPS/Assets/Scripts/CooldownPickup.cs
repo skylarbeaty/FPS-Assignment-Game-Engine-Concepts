@@ -3,7 +3,7 @@
 public class CooldownPickup : MonoBehaviour
 {
     [Header("Parameters")]
-    [Tooltip("Number of seocnds the cooldown effect will last")]
+    [Tooltip("Number of seconds the cooldown effect will last")]
     public float cooldownTime;
 
     Pickup m_Pickup;
@@ -20,13 +20,10 @@ public class CooldownPickup : MonoBehaviour
     void OnPicked(PlayerCharacterController player)
     {
         StatusEffect playerStatus = player.GetComponent<StatusEffect>();
-        if (playerStatus && playerStatus.canInstantCooldown){
-            playerStatus.StartInstantCooldown(cooldownTime);
+        if (playerStatus && playerStatus.canInstantCooldown){//dont start if the effect is already going
+            playerStatus.StartInstantCooldown(cooldownTime);//start the effect
             m_Pickup.PlayPickupFeedback();
             Destroy(gameObject);
-        }
-        else {
-            print(playerStatus == null);
         }
     }
 }
