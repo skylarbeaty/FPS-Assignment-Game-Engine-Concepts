@@ -1,5 +1,5 @@
 Game Engine Concepts \
-Assignment 1 - FPS Microgame \
+Assignment 1 - FPS Microgame <br/><br/>
 Task Breakdown\
 _Task 1_ \
 Completed the FPS Microgame tutorial. There’s not much to show for that in the project,
@@ -31,7 +31,7 @@ shoots back to normal. I edited the WeaponController Script from the FPS Microga
 make this work. I added a couple modifying variable to the UpdateAmmo function. Also created
 a Status Effect class for hte player, to track this kind of effect. Created a prefab with similar
 effects to health pickup and a script on it that interfaces with the existing FPS Microgame pick
-up system. \ 
+up system. <br/><br/>
 _File Locations_\
 A working build can be found in “Builds/Pc Build 1/”. Run GECAssignemnt1FPS.exe\
 The Unity Folder is named “GECAssignment1FPS”\
@@ -40,7 +40,7 @@ Any files from external assets are in the “External” folder, including ones 
 The textures I added are in the “3dtexture.me” folder. I created the materials here myself and
 did texture packing for them.\
 The Lamp posts and signs are from the “SKY city Lite” folder in External. Inside the props folder
-here is the file “ads.psd” which I created insert eh KSU logo, overwriting the similarly named file.\
+here is the file “ads.psd” which I created insert eh KSU logo, overwriting the similarly named file. <br/><br/>
 _Assets Used_\
 Asset Store Assets\
 FPS Microgame\
