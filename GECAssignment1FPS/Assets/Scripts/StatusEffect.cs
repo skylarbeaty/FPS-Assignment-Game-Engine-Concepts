@@ -15,12 +15,12 @@ public class StatusEffect : MonoBehaviour
             EndInstantCooldown();
     }
 
-    public void StartInstantCooldown(float timing){
+    public void StartInstantCooldown(float timing){//called on pickup 
         instantCooldown = true;
         instantCooldownEnd = Time.time + timing;
         WeaponController.cooldownPowerup = true;//activate on modified microgame file
     }
-    void EndInstantCooldown(){
+    void EndInstantCooldown(){//called after timer
         instantCooldown = false;
         WeaponController.cooldownPowerup = false;
     }
