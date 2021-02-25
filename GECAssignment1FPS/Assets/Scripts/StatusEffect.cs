@@ -5,9 +5,7 @@ using UnityEngine;
 public class StatusEffect : MonoBehaviour
 {
     bool instantCooldown = false;
-
     float instantCooldownEnd;
-
     public bool canInstantCooldown{get{return !instantCooldown;}}
     void Update()
     {
